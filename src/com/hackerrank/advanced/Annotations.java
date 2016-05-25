@@ -1,4 +1,4 @@
-package hackerrank.advanced;
+package com.hackerrank.advanced;
 
 import java.lang.annotation.*;
 import java.lang.reflect.*;

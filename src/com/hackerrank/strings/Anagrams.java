@@ -1,20 +1,28 @@
 package com.hackerrank.strings;
 
-import java.util.HashMap;
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Anagrams {
 
 	static boolean isAnagram(String A, String B) {
-	   A = A.toLowerCase();
-	   B = B.toLowerCase();
+		A = A.toLowerCase();
+		B = B.toLowerCase();
 	   if( A.length() != B.length() ){
 		   return false;
 	   }
 	   
-	   int[] letters = new int[26];
-	   
-	   
+	   char[] chars = A.toCharArray();
+       Arrays.sort(chars);
+       String sortedA = new String(chars);
+       
+       chars = B.toCharArray();
+       Arrays.sort(chars);
+       String sortedB = new String(chars);
+	          
+	   if( !sortedA.equals(sortedB) ){
+		   return false;
+	   }
 	   
 	   return true;
 	}

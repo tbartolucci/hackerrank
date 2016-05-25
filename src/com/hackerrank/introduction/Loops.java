@@ -1,4 +1,4 @@
-package hackerrank.introduction;
+package com.hackerrank.introduction;
 
 import java.io.*;
 import java.util.*;
