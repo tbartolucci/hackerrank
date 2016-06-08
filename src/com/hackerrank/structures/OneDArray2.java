@@ -1,5 +1,6 @@
 package com.hackerrank.structures;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class OneDArray2 {
@@ -23,7 +24,37 @@ public class OneDArray2 {
 	}
 
 	public static void solveProblem(int arraySize, int move, int[] arr) {
-
+		boolean failed = false;
+		//starting position
+		int current = 0;
+		boolean[] walked = new boolean[arraySize];
+		Arrays.fill(walked, false);
+		while ( !failed ) {
+			walked[current] = true;
+			if ( current + 1 >= arraySize ) {
+				System.out.println("YES");
+				return;
+			} else if ( current + move >= arraySize ) {
+				System.out.println("YES");
+				return;
+			} else if ( arr[current+1] == 0 ) {
+				current = current + 1;
+			} else if ( arr[current+move] == 0 ) {
+				current = current + move;
+			} else {
+				boolean keepGoing = false;
+				for( int i = 0; i < walked.length; i++ ) {
+					if ( walked[i] == false ) {
+						keepGoing = true;
+					}
+				}
+				if( !keepGoing ) {
+					failed = true;
+					System.out.println("NO");
+					return;
+				}
+			}
+		}
 	}
 	
 	/**
